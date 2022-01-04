@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>Vue.js Exemples</title>
+
+  <!--******* LIEN VUE JS POUR INTERPRETER ************************************************************-->
+  <script src="https://unpkg.com/vue@3.2.26"></script>
+  <!--***************************************************************************************************-->
+
+</head>
+<body>
+
+    <div id="app">
+
+      <h1>Server status</h1>
+<!-- LE V-IF POUR AFFICHER OU NON DES ELEMENTS-->
+
+  <!--sur 1 element-->
+       <!-- si is-active false : n'est pas interprete -->
+      <p v-if="isActive">Server is Up</p>
+       <!--si is active est false donc on affiche cet element-->
+      <p v-else>Server is DOWN</p>
+
+      <!--sur 1 bloc d'éléments-->
+      <article v-if="isActive">
+
+        <h3>TEST</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam doloribus ducimus fugit sit iste ab necessitatibus quia officia! Accusamus, expedita!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam doloribus ducimus fugit sit iste ab necessitatibus quia officia! Accusamus, expedita!</p>
+      </article>
+      
+
+      <!-- -->
+      
+
+       <!-- si is-active false : apparait dans l'interpreteur mais est en display none -->
+      <p v-show="isActive">Access the server</p>
+
+      
+
+    </div>
+    <script> 
+          const app = Vue.createApp({
+            data(){
+                return {
+                  isActive: false
+                }
+            }
+          });
+          app.mount('#app');
+
+    </script>
+</body>
+</html>
