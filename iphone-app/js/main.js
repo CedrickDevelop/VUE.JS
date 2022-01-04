@@ -5,7 +5,6 @@ iphone13 =
   ecran : "Ecran 240 Hz.",
   camera : "Camera mode ProRAW",
   performance : "Performance 6 Go de RAM. ",
-
 }
 
 const app = Vue.createApp({
@@ -15,22 +14,47 @@ const app = Vue.createApp({
       produit : 'Iphone13',
       slogan : 'Le meilleur Iphone de tous les temps',
       description_produit : 'Nous avons parcouru le design et tous les éléments constituant « l’extérieur » du futur smartphone d’Apple mais qu’en est-il de ses caractéristiques techniques ? ',
-      image : './assets/images/iphone-13-blue.png',
-
-      // ecran : "Plusieurs rumeurs circulent concernant les nouveaux écrans présents sur le futur iPhone 13. Ces derniers devraient proposer un taux de rafraichissent variable inédit sur des écrans ProMotion 120 Hz « always on » voire 240 Hz. En effet, un brevet a été déposé par la marque pour une technologie capable de faire varier la fréquence de rafraichissement en fonction du contenu affiché à l’écran.",
-
-      // camera : "L’iPhone 12 Pro et Pro Max intégraient déjà de belles innovations en ce qui concerne la caméra, on pense bien sûr au Lidar et au mode ProRAW. Ces nouveautés devraient également être présentes sur les quatre prochains iPhone 13, pour garantir des photos et des vidéos d’une très haute qualité.",
-
-      // touchId : "En 2021, Apple pourrait de nouveau intégrer Touch ID à ses smartphones mais différemment. En effet, concernant le déverrouillage par empreintes digitales, les analystes évoquent un capteur intégré directement sous l’écran (comme sur le OnePlus par exemple), permettant de libérer de l’espace et de profiter d’une bordure la plus fine possible.",
-
-      // performance : "L’une des principales nouveautés de l’iPhone 13, et pas des moindres, est l’intégration d’une puce SoC A15 gravé en 5nm+ par TSMC. Ce processus offre des performances encore plus impressionnantes que le 5nm et une meilleure efficacité énergétique. Côté mémoire, le nouvel iPhone devrait ressembler à la précédente génération avec des modèles entrée de gamme à 4 Go de RAM. Les modèles Pro auront 6 Go de RAM. ",
-
-      caracteristique : iphone13,
+      
+      variants: [
+        {id: 'iphone13-001', color:'blue', image:'./assets/images/iphone-13-blue.png'},
+        {id: 'iphone13-002', color:'midnight', image:'./assets/images/iphone-13-midnight.png'},
+        {id: 'iphone13-003', color:'red', image:'./assets/images/iphone-13-red.png'}
+      ],
 
       
+      image : './assets/images/iphone-13-blue.png',
+      // image2 : './assets/images/iphone-13-midnight.png',
+      // image3 : './assets/images/iphone-13-red.png',
 
-      Iphone13quantity : 3,
+      caracteristique : iphone13,      
+
+      Iphone13quantity : 9,
+
+      cart : 0,
+
+      affichage_image : 1,
+
     }
+  },
+  // Insertion de methodes d'evenements
+  methods: {
+    addCart(){
+      this.cart++;
+      this.Iphone13quantity--;
+      // alert('Ajouté au panier');
+    },
+    updateImage(imageURL){
+      this.image = imageURL
+    },
+    // mouseOverImage1(){
+    //   this.affichage_image = 1
+    // },
+    // mouseOverImage2(){
+    //   this.affichage_image = 2
+    // },
+    // mouseOverImage3(){
+    //   this.affichage_image = 3;
+    // }
   }
   
 });

@@ -18,25 +18,42 @@
 <body>
 
     <div id="app">
-      <div class="nav-bar"></div>
+      <div class="nav-bar">
+      </div>
+      <div class="cart">Panier : {{cart}}</div>
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
+            <!--
+            <img v-if="(affichage_image==2)" :src="image2" :alt="product">
+            <img v-else-if="(affichage_image==3)" :src="image3" :alt="product">
+            <img v-else :src="image1" :alt="product">
+          -->
             <img :src="image" :alt="product">
+
           </div>
           <div class="product_info">
             <h1>{{ produit }}</h1>
             <h2>{{ slogan }}</h2>
             <!--<h2 v-if="Iphone13enStock"><span class="green">En stock</span></h2>
             <h2 v-else><span class="red">Rupture de stock</span></h2>-->
-            <h2 v-if="(Iphone13quantity>1)"><span class="green">En stock</span></h2>
-            <h2 v-else-if="(Iphone13quantity>1)&&(Iphone13quantity<5)"><span class="orange">Presque plus de stock</span></h2>
+            <h2 v-if="(Iphone13quantity>5)"><span class="green">En stock</span></h2>
+            <h2 v-else-if="(Iphone13quantity>=3) && (Iphone13quantity<=5)"><span class="orange">Presque plus de stock</span></h2>
             <h2 v-else><span class="red">Rupture de stock</span></h2>
             <ul>
               <li v-for="caract in caracteristique">
                 {{caract}}
               </li>
             </ul>
+            <hr>
+            <h4>Quelle couleur souhaitez-vous ?</h4>
+
+            <ul class="product_images" >
+              <li  v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">
+                {{variant.color}}
+              </div>
+            </ul>
+            <button v-on:click="addCart" class="button">commander</button>
           </div>
           <div >
             <h3>{{ description_produit }}</h3>
