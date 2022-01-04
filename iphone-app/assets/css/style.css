@@ -48,8 +48,35 @@ body {
   
   h1 {
     font-size: 50px;
+    text-align: center;
   }
   
+  h2 {
+    font-size: 25px;
+    text-align: center;
+  }
+  h2 .green{
+    padding: 10px;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    background-color: green;
+  }
+  h2 .orange{
+    padding: 10px;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    background-color: orange;
+  }
+  h2 .red{
+    padding: 10px;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    background-color: red;
+  }
+
   h3 {
     font-size: 25px;
   }
@@ -94,6 +121,8 @@ body {
   
   p {
     font-size: 22px;
+    margin: 35px;
+    text-align: justify;
   }
   
   .product-display {
