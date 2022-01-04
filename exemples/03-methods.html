@@ -10,19 +10,28 @@
   <title>Vue.js Exemples</title>
 
   <!--******* LIEN VUE JS POUR INTERPRETER ************************************************************-->
-  <script src="https://unpkg.com/vue@3.2.26/"></script>
+  <script src="https://unpkg.com/vue@3.2.26"></script>
   <!--***************************************************************************************************-->
 
 </head>
 <body>
 
-    <div id="app"></div>
+    <div id="app">
+      <h2>{{ assignMessage() }}</h2>
+    </div>
     <script> 
           const app = Vue.createApp({
             data(){
                 return {
-
+                    message: ''
                 }
+            },
+            methods: {
+              assignMessage() {
+                this.message = ' Hello World !';
+                return this.message;
+
+              }
             }
           });
           app.mount('#app');
