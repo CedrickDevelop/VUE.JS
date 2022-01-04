@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>Vue.js Exemples</title>
+
+  <!--******* LIEN VUE JS POUR INTERPRETER ************************************************************-->
+  <script src="https://unpkg.com/vue@3.2.26"></script>
+  <!--***************************************************************************************************-->
+
+</head>
+<body>
+
+    <div id="app">
+
+      <h2>My skills</h2>
+
+      <ol>
+        <!-- Creation d'une boucle avec v-for -->
+        <!-- Creation d'une mise à jour des clés automatiquement avec v-bind:key-->
+        <li v-for="skill in skills" v-bind:key="skill">
+          {{ skill }}
+        </li>
+      </ol>
+      
+      <ol>
+        <!-- Creation d'une boucle avec v-for -->
+        <!-- Creation d'une mise à jour des clés automatiquement avec v-bind:key-->
+        <li v-for="(skill, ind) in skills" v-bind:key="ind">
+          {{ ind + '-' + skill }}
+        </li>
+      </ol>
+
+    </div>
+    <script> 
+          const app = Vue.createApp({
+            data(){
+                return {
+                  skills: ['HTML', 'CSS', 'JS', 'PHP', 'RUBY']
+                }
+            }
+          });
+          app.mount('#app');
+
+    </script>
+</body>
+</html>
