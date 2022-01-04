@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>Vue.js Exemples</title>
+
+  <!--******* LIEN VUE JS POUR INTERPRETER ************************************************************-->
+  <script src="https://unpkg.com/vue@3.2.26/"></script>
+  <!--***************************************************************************************************-->
+
+</head>
+<body>
+
+    <div id="app">
+      <!-- Le v-bind pour des liens -->
+      <a v-bind:href="siteUrl">Vue.js official website</a><br>
+      <!-- Le v-bind beaucoup plus simple -->
+      <a :href="siteUrl">Vue.js official website</a><br>
+      <!-- Le v-bind avec integration et concanetation de texte dans le lien -->
+      <a :href="'https://'siteUrl">Vue.js official website</a>
+    </div>
+    <script> 
+          const app = Vue.createApp({
+            data(){
+                return {
+                    // siteUrl: 'https://v3.vue.js.org'
+                    siteUrl: 'v3.vue.js.org'
+                }
+            }
+          });
+          app.mount('#app');
+
+    </script>
+</body>
+</html>
