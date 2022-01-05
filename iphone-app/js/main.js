@@ -16,23 +16,18 @@ const app = Vue.createApp({
       description_produit : 'Nous avons parcouru le design et tous les éléments constituant « l’extérieur » du futur smartphone d’Apple mais qu’en est-il de ses caractéristiques techniques ? ',
       
       variants: [
-        {id: 'iphone13-001', color:'blue', image:'./assets/images/iphone-13-blue.png'},
-        {id: 'iphone13-002', color:'midnight', image:'./assets/images/iphone-13-midnight.png'},
-        {id: 'iphone13-003', color:'red', image:'./assets/images/iphone-13-red.png'}
+        {pos:0, id: 'iphone13-001', color:'#497d9e', image:'./assets/images/iphone-13-blue.png', stock:3},
+        {pos:1, id: 'iphone13-002', color:'#2b323a', image:'./assets/images/iphone-13-midnight.png', stock:30},
+        {pos:2, id: 'iphone13-003', color:'#c51b2c', image:'./assets/images/iphone-13-red.png', stock:0}
       ],
 
-      
+      // stock: ['en stock', 'plus de stock', 'pas d\'achat possible'],
+
       image : './assets/images/iphone-13-blue.png',
-      // image2 : './assets/images/iphone-13-midnight.png',
-      // image3 : './assets/images/iphone-13-red.png',
-
-      caracteristique : iphone13,      
-
+      caracteristique : iphone13,   
       Iphone13quantity : 9,
-
       cart : 0,
-
-      affichage_image : 1,
+      product_pos : 0,
 
     }
   },
@@ -41,23 +36,30 @@ const app = Vue.createApp({
     addCart(){
       this.cart++;
       this.Iphone13quantity--;
-      // alert('Ajouté au panier');
     },
-    updateImage(imageURL){
-      this.image = imageURL
+    updateImage(imageURL, product_pos){
+      this.image = imageURL;
+
+      let product = this.variants[product_pos].stock
+
+      if (product < 1){
+        console.log("pas d'achat possible")
+
+      }
+      else if ((product > 1) && (product < 5)){
+        console.log("presque plus")
+      }
+      else {
+        console.log("achat possible")
+      }
+
     },
-    // mouseOverImage1(){
-    //   this.affichage_image = 1
-    // },
-    // mouseOverImage2(){
-    //   this.affichage_image = 2
-    // },
-    // mouseOverImage3(){
-    //   this.affichage_image = 3;
-    // }
-  }
-  
+  },  
 });
+
+app.component('app-nav', {
+  template: '<H1>New Iphone<h1>',
+})
 
 // Montage de l'application pour l'affichage
 app.mount('#app');
